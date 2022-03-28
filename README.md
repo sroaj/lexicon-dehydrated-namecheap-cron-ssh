@@ -20,7 +20,7 @@ services:
   dehydrated:
     container_name: dehydrated
     build:
-      context: https://github.com/sroaj/lexicon-dehydrated-namecheap-cron-ssh.git
+      context: https://github.com/sroaj/lexicon-dehydrated-namecheap-cron-ssh.git#main
     init: true
     environment:
       EMAIL: "<put your email here>"
@@ -159,7 +159,7 @@ python3 deploy_freenas.py
 ```
 
 With a ```deploy_config``` of:
-```
+```ini
 [deploy]
 api_key = <Your freenas api key>
 privkey_path = /dev/stdin
