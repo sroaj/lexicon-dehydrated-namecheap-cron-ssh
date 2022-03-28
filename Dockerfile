@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install -y cron openssh-client && \
 
 COPY entrypoint.sh /entrypoint.sh
 COPY crontab /etc/crontab
-COPY dehydrated.reload_services.sh /srv/dehydrated/
-COPY reload_services.sh /srv/dehydrated/
+COPY dehydrated.reload_services.sh reload_services.sh /srv/dehydrated/
 # Override default config with config in this repo
 COPY config /usr/local/etc/dehydrated/
 
