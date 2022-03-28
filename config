@@ -1,0 +1,6 @@
+echo "Sourcing main config at ${SCRIPTDIR}/config"
+. "${SCRIPTDIR}/config"
+
+export ORIGINAL_HOOK="${HOOK}"
+HOOK="${SCRIPTDIR}/dehydrated.reload_services.sh"
+

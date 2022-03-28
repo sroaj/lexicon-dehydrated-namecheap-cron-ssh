@@ -1,0 +1,3 @@
+ssl@edge.int.sroajsosothikul.com /config/auth/letsencrypt.sh
+ssl@files.int.sroajsosothikul.com
+root@cyclone.int.sroajsosothikul.com /vmfs/volumes/EVO/letsencrypt.sh
