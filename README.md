@@ -36,7 +36,7 @@ volumes:
   data:
 ```
 
-Add ```/data/domains/txt``` with domains:
+Add ```/data/domains.txt``` with domains:
 
 ```txt
 *.example.com
