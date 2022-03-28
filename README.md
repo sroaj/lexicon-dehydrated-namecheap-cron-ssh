@@ -47,7 +47,7 @@ Add ```/data/domains/txt``` with domains:
 After your start the container. Suppose the container has the name ```dehydrated```:
 
 ```bash
-docker run -it dehydrated /srv/dehydrated/dehydrated --register --accept-terms
+docker exec -it dehydrated /srv/dehydrated/dehydrated --register --accept-terms
 ```
 
 ### Auto propogation
