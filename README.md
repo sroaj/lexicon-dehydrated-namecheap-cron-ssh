@@ -52,9 +52,9 @@ docker exec -it dehydrated /srv/dehydrated/dehydrated --register --accept-terms
 
 ### Auto propogation
 
-Suppose you want certificates for ```yoursubdomain.example.org``` to be copied to and installed in a specific ssh-able host.
+Suppose you want certificates for ```*.example.org``` to be copied to and installed in a specific ssh-able host.
 
-Create a ```/data/hostlist.yoursubdomain.example.org.txt``` with the following format:
+Create a ```/data/hostlist.example.org.txt``` with the following format:
 
 ```
 [user@]hostname|ip [command to run]
@@ -165,3 +165,13 @@ api_key = <Your freenas api key>
 privkey_path = /dev/stdin
 fullchain_path = cert.pem
 ```
+
+### Manual Propogation
+
+If auto propogation failed, and you want to rerun the propogation manually, you can run this on the docker host:
+
+```
+docker exec -it dehydrated /bin/bash -c 'BASEDIR=/data /srv/dehydrated/reload_services.sh example.org /data/certs/example.org/privkey.pem /data/certs/example.org/cert.pem /data/certs/example.org/fullchain.pem'
+```
+
+Assuming that you have a ```/data/hostlist.example.org.txt``` created with the host that you wanted to propogate the cert to.
