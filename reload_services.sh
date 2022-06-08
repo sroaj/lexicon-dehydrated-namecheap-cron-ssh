@@ -6,7 +6,7 @@ CERT_PATH="${3}"
 CHAIN_FILE_NAME="fullchain.pem"
 CHAIN_PATH="${4}"
 
-HOSTLIST_PATH="${BASEDIR}/hostlist.txt"
+HOSTLIST_PATH="${BASEDIR}/hostlist.${1}.txt"
 
 REMOTE_BINARY_NAME="./letsencrypt.sh"
 

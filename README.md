@@ -52,9 +52,9 @@ docker exec -it dehydrated /srv/dehydrated/dehydrated --register --accept-terms
 
 ### Auto propogation
 
-Suppose you want certificates to be copied to and installed in a specific ssh-able host.
+Suppose you want certificates for ```yoursubdomain.example.org``` to be copied to and installed in a specific ssh-able host.
 
-Create a ```/data/hostlist.txt``` with the following format:
+Create a ```/data/hostlist.yoursubdomain.example.org.txt``` with the following format:
 
 ```
 [user@]hostname|ip [command to run]
