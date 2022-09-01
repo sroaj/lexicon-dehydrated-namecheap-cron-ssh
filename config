@@ -1,4 +1,5 @@
 echo "Sourcing main config at ${SCRIPTDIR}/config"
+export PATH=/usr/local/bin:$PATH
 . "${SCRIPTDIR}/config"
 
 export ORIGINAL_HOOK="${HOOK}"
