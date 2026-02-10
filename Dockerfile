@@ -1,3 +1,5 @@
+FROM ubuntu:noble-20260113
+# The above versions should be automatically updated by dependabot
 FROM analogj/lexicon:latest
 
 COPY --from=tomfun/lexicon-dehydrated-namecheap /srv/dehydrated/config /srv/dehydrated/
