@@ -7,19 +7,19 @@ RUN git clone --depth 1 https://github.com/lukas2511/dehydrated.git /srv/dehydra
     && apt install -y bsdmainutils \
     && apt-get clean \
     && pip install dns-lexicon[namecheap] \
-    && apt-get install -y cron openssh-client && \
+    && apt-get install -y cron openssh-client curl && \
     which cron && \
     rm -rf /etc/cron.*/* && \
     mkdir -p /root/.ssh && \
     echo "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
     ln -s /run/secrets/user_ssh_key /root/.ssh/id_rsa
 
-COPY --from=tomfun/lexicon-dehydrated-namecheap /srv/dehydrated/config /srv/dehydrated/
+COPY --from=tomfun/lexicon-dehydrated-namecheap /srv/dehydrated/config /srv/dehydrated/dehydrated.default.sh /srv/dehydrated/
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 COPY crontab /etc/crontab
-COPY dehydrated.reload_services.sh reload_services.sh /srv/dehydrated/
+COPY --chmod=755 dehydrated.reload_services.sh reload_services.sh /srv/dehydrated/
 # Override default config with config in this repo
 COPY config /usr/local/etc/dehydrated/
 
