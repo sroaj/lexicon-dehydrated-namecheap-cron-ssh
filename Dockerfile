@@ -2,9 +2,8 @@ FROM python:3.15.0a6-slim
 # The above versions should be automatically updated by dependabot
 FROM ghcr.io/dns-lexicon/dns-lexicon:3.23.2
 
-COPY --from=tomfun/lexicon-dehydrated-namecheap /srv/dehydrated/config /srv/dehydrated/
-
-RUN apt update \
+RUN git clone --depth 1 https://github.com/lukas2511/dehydrated.git /srv/dehydrated \
+    && apt update \
     && apt install -y bsdmainutils \
     && apt-get clean \
     && pip install dns-lexicon[namecheap] \
@@ -14,6 +13,8 @@ RUN apt update \
     mkdir -p /root/.ssh && \
     echo "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config && \
     ln -s /run/secrets/user_ssh_key /root/.ssh/id_rsa
+
+COPY --from=tomfun/lexicon-dehydrated-namecheap /srv/dehydrated/config /srv/dehydrated/
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
