@@ -1,4 +1,4 @@
-FROM python:3.15.0b1-slim
+FROM python:3.15.0b2-slim
 # The above versions should be automatically updated by dependabot
 FROM ghcr.io/dns-lexicon/dns-lexicon:3.25.2
 
