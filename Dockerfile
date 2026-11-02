@@ -1,6 +1,6 @@
 FROM python:3.16.0a1-slim
 # The above versions should be automatically updated by dependabot
-FROM ghcr.io/dns-lexicon/dns-lexicon:3.25.2
+FROM ghcr.io/dns-lexicon/dns-lexicon:3.26.0
 
 RUN git clone --depth 1 https://github.com/lukas2511/dehydrated.git /srv/dehydrated \
     && apt update \
